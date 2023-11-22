@@ -1,5 +1,7 @@
 https://drive.google.com/drive/folders/1ka-JqnHOBXGHZsnP_aCatV_TGBhumIF9
 
+
+//LB
 #!/bin/bash
 yum update -y
 yum install httpd -y
@@ -10,6 +12,7 @@ echo "<html><h1>This Webserver-01</h1></html>" > index.html
 
 https://drive.google.com/drive/folders/1X-clI2Gqt84LMHGE0JY9U-LEeYQfg146
 
+//VPC
 #!/bin/bash
 # Install Apache Web Server and PHP
 sudo dnf install -y httpd wget php mariadb105-server
@@ -21,3 +24,17 @@ unzip lab-app.zip -d /var/www/html/
 # Turn on web server
 chkconfig httpd on
 service httpd start
+
+// Lambda
+import json
+def lambda_handler(event, context):
+    numbers = event['numbers']    
+    a=numbers['number_1']
+    b=numbers['number_2']
+    # Concatenate lists 'a' and 'b' to create 'c'.
+    c = a + b
+    # Print the concatenated list 'c'.
+    print(c)
+    return {
+        'statusCode': 200,
+        'body': json.dumps(c) }
